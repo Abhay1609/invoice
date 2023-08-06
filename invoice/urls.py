@@ -18,8 +18,10 @@ from django.urls import path
 
 from django.contrib import admin
 from django.urls import path, include
+from in_detail.views import InvoiceViewSet
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('in_detail.urls')),
+    path('invoices/', InvoiceViewSet.as_view({'get': 'list', 'post': 'create'}), name='invoice-list'),
 ]
